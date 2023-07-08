@@ -21,7 +21,7 @@ public class EmployeeController {
     EmployeeService EmployeeService;
 
 
-    @PostMapping(EmployeeServiceConstants.EMPLOYEE_ADD_STUDENT_ENDPOINT)
+    @PostMapping(EmployeeServiceConstants.EMPLOYEE_ADD_EMPLOYEE_ENDPOINT)
     public ResponseEntity<EmployeeResponse> addEmployee(@RequestBody EmployeeRequest request){
         log.info("## Employee Controller :: add Employee");
         EmployeeResponse EmployeeResponse=EmployeeService.addEmployee(request);
@@ -29,7 +29,7 @@ public class EmployeeController {
         return new ResponseEntity(EmployeeResponse,HttpStatus.OK);
     }
 
-    @GetMapping(EmployeeServiceConstants.EMPLOYEE_GET_STUDENT_ENDPOINT+"/{sid}")
+    @GetMapping(EmployeeServiceConstants.EMPLOYEE_GET_EMPLOYEE_ENDPOINT+"/{sid}")
     public ResponseEntity<EmployeeResponse> getEmployeeById(@PathVariable Long sid){
         log.info("## Employee Controller :: add Employee");
         EmployeeResponse EmployeeResponse=EmployeeService.getEmployee(sid);
@@ -37,7 +37,7 @@ public class EmployeeController {
         return new ResponseEntity(EmployeeResponse,HttpStatus.OK);
     }
 
-    @GetMapping(EmployeeServiceConstants.EMPLOYEE_GET_ALL_STUDENT_ENDPOINT)
+    @GetMapping(EmployeeServiceConstants.EMPLOYEE_GET_ALL_EMPLOYEE_ENDPOINT)
     public ResponseEntity<List<EmployeeResponse>> getAllEmployee(){
         log.info("## Employee Controller :: add Employee");
         List<EmployeeResponse> EmployeeResponse=EmployeeService.getAllEmployee();
